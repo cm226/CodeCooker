@@ -1,0 +1,74 @@
+.classBox
+{
+	stroke: black;
+	stroke-width: 1px;
+}
+
+.ClassName
+{
+	fill: #0052CC;
+font-weight: bold;
+font-family: arial, sans-serif;
+font-size: 15px;
+font-style: italic;
+letter-spacing: 0pt;
+
+}
+
+.ClassBarSeperator
+{
+	stroke-width:1px;
+	stroke:grey;
+}
+
+.ClassHeaderBar
+{
+	fill-opacity: 0;
+}
+
+
+@keyframes hoverFillAnimation
+{
+	from {fill: #333333;}
+	to {fill: #8CBAFF;}
+}
+
+@-webkit-keyframes hoverFillAnimation /* Safari and Chrome */
+{
+	from {fill: #333333;}
+	to {fill: #8CBAFF;}
+}
+
+@keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}
+
+@-webkit-keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}
+
+
+.ClassHeaderBarHover
+{
+	animation: hoverFillAnimation 0.2s;
+	-webkit-animation: hoverFillAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	cursor:move;
+}
+
+.ClassOutlineHover
+{
+	animation: hoverStrokeAnimation 0.2s;
+	-webkit-animation: hoverStrokeAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	stroke: #000066;
+}
+

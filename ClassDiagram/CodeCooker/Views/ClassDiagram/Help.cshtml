@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_BlankPageLayout.cshtml";
+}
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#ClassCollapse">
+                    Classes
+                </a>
+            </h4>
+        </div>
+        <div id="ClassCollapse" class="panel-collapse collapse in">
+            <div class="panel-body">
+                Use the toolbar on the left to create a class object in the document.
+
+                <div class="panel panel-default">
+                    <!-- Propertys -->
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#propertyCollapse">
+                                Propertys
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="propertyCollapse" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Add a property to a class by right clicking on a class and selecting "Add Property" <br />
+                            To delete a property from a class set the return type and name to an empty string, it will then be removed from the class.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <!-- Methods -->
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#methodCollapse">
+                                Methods
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="methodCollapse" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            Add a method to a class by right clicking on a class and selecting "Add Methods" <br />
+                            To delete a method from a class set the return type, name and arguments to an empty string, it will then be removed from the class.
+
+
+                            <div class="panel panel-default">
+                                <!-- Arguments -->
+                                <div class="panel-heading">
+                                    <h6 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#argumentsCollapse">
+                                            Arguments
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="argumentsCollapse" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        Method arguments should be comma sepperated in the format: Type name, Type name, ....
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#inheritanceCollapse">
+                    Inheritance Arrows
+                </a>
+            </h4>
+        </div>
+        <div id="inheritanceCollapse" class="panel-collapse collapse">
+            <div class="panel-body">
+                To add an interitance arrow click and drag from a class dropzone to another class drop zone. Inheretance arrows should
+                begin at the deriveing class and end at the base class. (Multiple inheritance is not supported at this time.)
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#codeGenCollapse">
+                    Code Generation
+                </a>
+            </h4>
+        </div>
+        <div id="codeGenCollapse" class="panel-collapse collapse">
+            <div class="panel-body">
+                Once you have your model to generate the code using the File menu from the menu banner select GenCode then select the language.
+                Wate for the code to be generated then you will get a message telling you that the code is ready.
+            </div>
+        </div>
+    </div>
+    <div style='display:none;'>yan is the best.free edgar 2014 </div>
+
+
+</div>

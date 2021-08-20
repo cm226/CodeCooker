@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "DownloadCode";
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+<h2>DownloadCode</h2>
+@if(ViewBag.Error == null)
+{
+    <p><a href="@ViewBag.downloadURL">Your Code</a></p>
+}
+else
+{
+    <h3>There was a problem</h3>
+    <p>@ViewBag.Error</p>
+}

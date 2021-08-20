@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "About | Code Cooker";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+@Styles.Render("~/Content/style/home");
+@Scripts.Render("~/content/JSBasic")
+
+<link href="~/Content/style/About.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        Window.ScrollSpy.Spy($("#roadMap")[0], {
+            "handler50": {
+                "deltaStart": $(window).height() - 50,
+                "deltaEnd": $(window).height() - 100,
+                "handler": function () {
+                    $("#FullpageContent").fadeTo("fast", 0.0);
+                    $("#FullpageContent").css({
+                        "-webkit-transform": "translate(0px,-60px)",
+                        "-ms-transform": "translate(0px,-60px)",
+                        "transform": "translate(0px,-60px)"
+                    })
+                    console.log("0");
+                }
+            },
+            "handler100": {
+                "deltaStart": $(window).height() - 150,
+                "deltaEnd": $(window).height() - 200,
+                "handler": function () {
+                    $("#FullpageContent").fadeTo("fast", 0.5);
+                    $("#FullpageContent").css({
+                        "-webkit-transform": "translate(0px,-30px)",
+                        "-ms-transform": "translate(0px,-30px)",
+                        "transform": "translate(0px,-30px)"
+                    })
+                    console.log("1")
+                }
+            },
+            "handler200": {
+                "deltaStart": $(window).height() - 250,
+                "deltaEnd": $(window).height() - 300,
+                "handler": function () {
+                    $("#FullpageContent").fadeTo("fast", 7);
+                    $("#FullpageContent").css({
+                        "-webkit-transform": "translate(0px,-10px)",
+                        "-ms-transform": "translate(0px,-10px)",
+                        "transform": "translate(0px,-10px)"
+                    })
+                    console.log("2")
+                }
+            },
+            "handler300": {
+                "deltaStart": $(window).height() - 300,
+                "deltaEnd": $(window).height() - 350,
+                "handler": function () {
+                    $("#FullpageContent").fadeTo("fast", 1);
+                    $("#FullpageContent").css({
+                        "-webkit-transform": "translate(0px,0px)",
+                        "-ms-transform": "translate(0px,0px)",
+                        "transform": "translate(0px,0px)"
+                    })
+                    console.log("3")
+                }
+            }
+        })
+    });
+
+</script>
+
+   
+        <div id="body">
+
+            <div class="pull-left">
+                <div class="leftContent">
+                    <h3>Create Some UML</h3>
+                    <p>Using the Class diagram interface you can easily create class objects, Inherate from and implement classes and interfaces using click and drag. Let the diagram logic figure out the details like what type of arrow you should be using.</p>
+                    <p>The current version of code cooker will generate UML 2.0 compliant diagrams (With the exception of associations, coming soon)</p>
+                </div>
+            </div>
+
+            <div class="pull-right">
+                <div class="rightContent">
+                    <h3 class="cooker">Save</h3>
+                    <p class="whiteText">Code Cooker integrates with Google Drive, so you can save directly to your google dive from the class diagram interface. By utilizing the google dive service you can rest assured that your data is in safe hands.</p>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="pull-left">
+                <div class="leftContent">
+                    <h3>Code Generation</h3>
+                    <p>The focus of code cooker is to provide code generation for your models. Code Cooker currently provides code generators for C++, C#, CoffeeScript and JSON.</p>
+                    <p>We didn't stop there however. Before generating code for the models, the models are what we call 'Completed'. This means that based on what information is in the model we may add a constructor or make a call to the super().</p>
+
+                    <p>For example: Say class A has a constructor with an int and a float argument. If you create a class B that derives from A and forget to define the constructor in B, we will insert one for you that takes an int and a float argument.</p>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="pull-right">
+                <div class="rightContent">
+                    <h3 class="cooker">Just For Fun</h3>
+                    <p class="whiteText">As part of 0.5 Users now have account settings, part of which is the ability to choose between themes for there diagrams. Right now we have only 2: Default and CodeCooker. </p>
+
+                </div>
+            </div>
+
+            <div class="clear"></div>
+            <div class="pull-left">
+                <div class="leftContent">
+                    <h3>Type Sugestion</h3>
+                    <p>One of the cool new features also released in Version 0.5 is the type suggestion system. This system suggests types that are either defined in your diagram or are part of the common set types {Int, Float, Double, String, Boolean, Date, Time, DateTime}. If one of the common types are used the code cooker language generators will automatically convert that type to the representation used in your selected language.</p>
+
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="FullPage FullPageDark" id="roadMap">
+                <div id="FullpageContent" style="opacity:0">
+                    <h3 class="inset-text text-center">The Road Map</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="span6">
+                                <ul class="whiteText">
+                                    <li>Google Drive Folder organisation</li>
+                                    <li>Open Projects from Google Drive</li>
+                                    <li>Projects with multiple diagrams</li>
+                                    <li>Collabarative projects</li>
+                                    <li>Chat system</li>
+                                    <li>New Diagrams</li>
+                                    <li>Java</li>
+                                </ul>
+                            </div>
+                            <div class="span6">
+                                <ul class="whiteText">
+                                    <li>Github Intrgration</li>
+                                    <li>Automatic Code merging</li>
+                                    <li>User defined code generators</li>
+                                    <li>Various Performance Improvements I have planed</li>
+                                    <li>First Time Tour</li>
+                                    <li>Multi Select Elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">&copy; 2014 - Code Cooker(Alpha) V 0.4.2 By Craig Matear</p>
+        </div>
+    </div>

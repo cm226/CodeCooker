@@ -1,0 +1,21 @@
+﻿@model CodeCooker.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+<div class="container">
+    <p>Login using one of the openID providers below:</p>
+
+    <section class="social text-center" id="socialLoginForm">
+
+        @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = "" }))
+        {
+            @Html.AntiForgeryToken()
+            <button class="LoginButton" type="submit" name="provider" value="google"><img src="~/Content/img/Red-signin_Long_base_44dp.png" style="height:40px;" /></button>
+        }
+    </section>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

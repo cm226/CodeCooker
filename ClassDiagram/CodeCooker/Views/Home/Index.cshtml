@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Code Cooker";
+    ViewBag.Description = "Code Cooker is a free online UML class diagram moddeling tool with code generation for C# C++ and Coffeescript languages.";
+}
+<div class="aboveTheFold" id="loginsliderTop">
+    <div class="foldContent center">
+        <div class="logoTable">
+            <span class="console largeText">{Code}</span>
+            <object data="~/Content/img/cauldrin-large.svg" type="image/svg+xml" style="height:140px;width:100px;"></object>
+        </div>
+        <div id="cooker" class="logoTable">
+            <span class="cooker largeText">Cooker</span>
+        </div>
+    </div>
+</div>
+<div>
+@if (!ViewBag.AuthenticatedUser)
+{ 
+    <div id="loginButtons" class="center" style="width:182px; height:0px;">
+        @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = "" }))
+        {
+        @Html.AntiForgeryToken()
+    <button class="LoginButton" type="submit" name="provider" value="GooglePlus"><img src="~/Content/img/Red-signin_Long_base_44dp.png" style="height:40px;" /></button>
+        }
+        
+    </div>
+    <div class="aboveTheFold" id="loginSlider">
+        <div class="center" id="loginBttn"><a id="loginBttnText" onclick="toggleLogin();">Login</a></div>
+    </div>
+}
+</div>
+
+    
+<div class="belowTheFold">
+
+    @if (ViewBag.AuthenticatedUser)
+    {
+        Html.RenderPartial("_IndexLogedIn_Partial");
+    }
+    else
+    {
+        Html.RenderPartial("_IndexNoLogedIn_Partial");
+    }
+</div>
+

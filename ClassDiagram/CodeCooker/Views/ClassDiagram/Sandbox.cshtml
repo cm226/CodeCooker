@@ -1,0 +1,254 @@
+﻿@{
+    ViewBag.Title = "Sandbox | Code Cooker ";
+    Layout = "~/Views/ClassDiagram/_DiagramLayout.cshtml";
+}
+<script type="text/javascript">
+    $(function () {
+        $('button[rel=tooltip]').tooltip();
+        $('#popoverLink').popover();
+        $("#commentButton").click(function () {
+            $("#feedbackModel").modal();
+        });
+    });
+</script>
+
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li><a style="padding:0px;" href="@Url.Content("~")"><div id="logo"><span class="console">{Code}</span><img src="~/Content/img/cauldrin-small.svg" style="height:24px;width:24px;" /><span class="cooker">Cooker</span></div></a></li>
+            <li>@Html.ActionLink("Home", "", "Home")</li>
+            <li>@Html.ActionLink("Sandbox", "Sandbox", "ClassDiagram")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+
+        <ul class="nav pull-right">
+            @Html.Partial("_LoginPartial")
+        </ul>
+    </div>
+</div>
+
+<div id="toolBar">
+    <div class="btn-group-vertical">
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateClass()" rel="tooltip" data-placement="right" title="Class"><img src="/Content/img/class.png" /></button>
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateInterface();" rel="tooltip" data-placement="right" title="Interface"><img src="/Content/img/interface.png" /></button>
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateNamespace();" rel="tooltip" data-placement="right" title="Namespace"><img src="/Content/img/Namespace.png" /></button>
+    </div>
+</div>
+
+<div id="contextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.AddProperty();">Add Property</a></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.AddMethod();">Add Method</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+<div id="interfaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.InterfaceMenu.AddMethod();">Add Method</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.InterfaceMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+
+<div id="namespaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.NamespaceMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+<div id="ArrowContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.ArrowMenu.Bend();">Bend</a></li>
+    </ul>
+</div>
+
+
+<div id="typeSugestionList" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;"></ul>
+</div>
+
+<div class="modal fade" id="modelWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" id="modelHeader">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div id="modelHeaderContent"></div>
+            </div>
+            <div class="modal-body" id="modelContent">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="feedbackModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" id="feedbackmodelHeader">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div id="modelHeaderContent">Feedback</div>
+            </div>
+            <div class="modal-body" id="feedbackmodelContent">
+                <p>Help us make Code Cooker better, let us know what you think:</p>
+                <form method="post" action="/Mail/Mail">
+                    <strong>Comment:</strong>
+                    <textarea name="CommentText" id="CommentText"></textarea>
+                    <strong>e-mail address:</strong> (optional, but we can't reply without it.)<input type="text" name="email" id="email" />
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
+                <script type='text/javascript'>
+                    $("#postCommentForm").submit(function (event) {
+                        event.preventDefault();
+                        var $form = $(this),
+                            url = $form.attr('action');
+                        var posting = $.post(url, { comment: $('#CommentText').val() });
+                        posting.done(function (data) {
+                            $("#feedbackmodelContent").html("<p>Thank you, your comment was posted successfully</p>");
+                        });
+                        posting.error(function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert("some error " + textStatus + " : " + errorThrown);
+                        });
+                        posting.fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert("some error");
+                        });
+                    });
+                </script>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="WorkArea">
+
+    <a href="#" id="popoverLinkPropR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkPropL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+
+    <a href="#" id="popoverLinkMethR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkMethL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLink" class="popoverLink" data-html="true" data-toggle="popover" data-placement="bottom" data-content="" title="" data-original-title=""></a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Help!</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        Classes
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    Classes can be created by clicking on the add class button on the top left corner of the screen. The classes stack so you have to
+                                    move the class to see subsiquetly created classes.
+                                    Classes can be moved by clicking and draging the header bar.
+
+                                    To activate a class click in the header bar, an activated class will turn blue.
+                                    To edit the content of the activated class click the grey tab on the left of the screen while the class you want to edit is activated. <br /><br />
+
+                                    In the pop out you can update the details of the current active class, make sure and click the update button at the bottom of the popout to make your changes are persistant. The active class can be changed while the pop-out is open and the details of the newly selected active class will be populated.
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        Arrows
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    If you hover over any of the four arrow drop points (dots) on a class the cursor will turn to a hand. To create an arrow hover over the arrow drop points, Click and drag to another drop point or release the arrow wherever you want to drop it.
+                                    <br /></br>
+
+                                    To change where an arrow points to click and drag on the arrow body and the arrow will detatch from it's current connection.
+
+                                    The currently selected arrow is shown in red. The currently selected arrow can be deleted by pressing the delete button.
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div id="svgWrapper">
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+            <defs>
+                <pattern id="lines" x=".05" y=".05" width=".015" height=".01">
+                    <line x1="20" y1="0" x2="20" y2="100" style="stroke:black;stroke-width:1" />
+                    <line x1="0" y1="20" x2="100" y2="20" style="stroke:black;stroke-width:1" />
+                </pattern>
+
+                <polygon id="arrowHeadU" pointer-events="none" points="0,0 5,15 -5,15" />
+
+
+                <linearGradient y2="0" x2="1" id="classGreenGradient" spreadMethod="repeat">
+                    <stop stop-color="#00417A" offset="0" stop-opacity="1" />
+                    <stop stop-color="#006dcc" offset="0.05" />
+                    <stop stop-color="#006dcc" offset="0.95" />
+                    <stop stop-color="#00417A" offset="1" />
+                </linearGradient>
+
+                <filter id="dropshadow" height="130%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3" /> <!-- stdDeviation is how much to blur -->
+                    <feOffset dx="2" dy="2" result="offsetblur" /> <!-- how much to offset -->
+                    <feMerge>
+                        <feMergeNode /> <!-- this contains the offset blurred image -->
+                        <feMergeNode in="SourceGraphic" /> <!-- this contains the element that the filter is applied to -->
+                    </feMerge>
+                </filter>
+
+            </defs>
+            <rect id="UMLBackground" onmousedown="window.UML.Pulse.BackgroundClick.pulse()" onmouseup="window.UML.backgroundMouseUp()" x="0" y="0" fill-opacity="0" width="100%" height="100%" />
+            <rect id="classLayerMarker" x="0" y="0" width="0" height="0" fill-opacity="1" />
+            <rect id="namespaceLayerMarker" x="0" y="0" width="0" height="0" fill-opacity="1" />
+
+        </svg>
+    </div>
+</div>
+
+<footer class="navbar-inverse">
+    <div class="navbar-inner" id="commentButton">
+        <p class="cooker">Something To Say?</p>
+    </div>
+</footer>

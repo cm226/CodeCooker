@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Code Cooker</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+	<script language="javascript" type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+
+
+  <script type="text/javascript" src="jquery.svg/jquery.svg.js"></script>
+  <script type="text/javascript" src="jquery.svg/jquery.svgdom.js"></script>
+	<script language="javascript" type="application/ecmascript" src="UML.js"></script>
+
+  <script language="javascript" type="application/javascript" src="../../Scripts/StatusBar.js"></script>
+  <script language="javascript" type="application/javascript" src="../../Scripts/rollover-list.js"></script>
+  <script language="javascript" type="application/javascript" src="../../Scripts/GroupActivity.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../Style/Default/class_diagram.css">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../Style/Default/Animations.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Default/Class.css">
+  <link rel="stylesheet" type="text/css" href="../Style/Default/ContextMenu.css">
+  <link rel="stylesheet" type="text/css" href="../Style/Default/Arrows.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Logo.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Default/ModelDialog.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Default/Resizers.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Default/Namespaces.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/Default/ClassPropertysPopout.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/GroupActivity.css">  
+
+  <link rel="stylesheet" type="text/css" href="../Style/loadingBar.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/rolloverList.css">  
+
+<script type="text/javascript">
+    $(function(){
+        $('button[rel=tooltip]').tooltip();
+        $('#popoverLink').popover();
+         $("#toolBar").animate({
+            left: "0px"
+        }, 1000);
+        $("#commentButton").animate({
+            bottom: "0px"
+        }, 1000);
+
+        $(".rollout-list li").mouseover(function(){
+            window.Interface.RolloverList.animateOpen(this)
+        })  
+       $(".rollout-list li").mouseleave(function(){
+            window.Interface.RolloverList.animateClose(this)
+        })
+
+       $("#GroupActivity #modelHeader .close").click(function () { window.Interface.GroupActivity.close();})
+       $("#chattMessage button").click(function () { window.Interface.GroupActivity.sendMessage(window.Interface.CoOpChatt);})
+        
+    });
+
+</script>
+
+<script type="text/javascript">
+
+function initDoc()
+{
+  window.UML.setDebug()
+
+  var unpacker = new window.UML.Unpacker.Unpacker(new window.UML.Unpacker.NetworkUnpackStratagy());
+  var model = unpacker.Unpack('{"Name":"Diagram01","Version":"0.5.5","classList":[{"modelItemID":0,"model":{"Properties":{"modelItemID":4,"model":[{"modelItemID":1,"model":{"Name":"name","Vis":"+","Type":"Int","Static":false}}]},"Methods":{"modelItemID":5,"model":[{"modelItemID":2,"model":{"Name":"Method","Return":"Int","Vis":"+","Args":"arg1 : Int, arg2 : Float","Comment":"","Static":false,"Absract":false}}]},"Comment":"","Position":{"x":663,"y":61},"vis":"Public","Name":"Item0"}},{"modelItemID":4,"model":{"Properties":{"modelItemID":7,"model":[{"modelItemID":5,"model":{"Name":"name","Vis":"+","Type":"Int","Static":false}}]},"Methods":{"modelItemID":8,"model":[{"modelItemID":6,"model":{"Name":"Method","Return":"Int","Vis":"+","Args":"arg1 : Int, arg2 : Float","Comment":"","Static":false,"Absract":false}}]},"Comment":"","Position":{"x":126,"y":66},"vis":"Public","Name":"Item4"}}],"arrowList":[],"interfaceList":[],"namespaceList":[]} ');
+
+
+  window.Interface.StatusBar.setLoadingStatus("Downloading File")
+}  
+
+window.UML.Pulse.Initialise.add(initDoc);      
+
+</script>
+
+
+</head>
+
+<body>
+
+
+  <div class="navbar navbar-inverse navbar-static-top" id="navBar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><div id="logo"><span class="console">{Code}</span><img src="cauldrin-small.svg" style="height:24px;width:24px;"/><span class="cooker">Cooker</span></div></li>          
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="console.log(window.UML.Serialize.SerializeModel());">Save</a></li>
+            <li><a href="#" onclick="window.UML.Utils.doSaveAs();">Save As</a></li>
+           <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">GenCode</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onclick="window.UML.Serialize.SerializeModel();">C++</a></li>
+              <li><a href="#" onclick="window.UML.Serialize.SerializeModel();">C#</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+       <li class="dropdown">
+       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
+       	<ul class="dropdown-menu">
+       		<li><a href="#" onclick="window.UML.globals.CtrlZBuffer.Undo();">Undo <span class="note">(Ctrl+Z)</span></a></li>
+       		<li><a href="#" onclick="window.UML.globals.CtrlZBuffer.Redo();">Redo <span class="note">(Ctrl+Y)</span></a></li>
+       	</ul>
+       </li>
+       <li class="dropdown">
+       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Co-Op</a>
+       	<ul class="dropdown-menu">
+       		<li><a href="#" onclick="">Host Co-Op Document</a></li>
+       		<li><a href="#" onclick="">Connect to hosted document</a></li>
+       	</ul>
+       </li>
+    </ul>
+    
+    <ul class="nav pull-right">
+      <li><a href="#" onclick="window.open('help.html','Help','width=400,height=500');">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+  <div id="toolBar">
+    <div class="btn-group-vertical">
+      <button type="button" class="btn-group-xs" onclick="window.UML.CreateClass()"  rel="tooltip" data-placement="right" title="Class"><img src="../img/class.png" /></button>
+      <button type="button" class="btn-group-xs" onclick="window.UML.CreateInterface();"  rel="tooltip" data-placement="right" title="Interface"><img src="../img/interface.png" /></button>
+      <button type="button" class="btn-group-xs" onclick="window.UML.CreateNamespace();" rel="tooltip" data-placement="right" title="Namespace"><img src="../img/Namespace.png" /></button>
+    </div>
+  </div>
+	
+
+  <div id="contextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.contextMenu.AddProperty();" >Add Property</a></li>
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.contextMenu.AddMethod();">Add Method</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.contextMenu.Delete();">Delete</a></li>
+    </ul>
+  </div>
+
+  <div id="interfaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.InterfaceMenu.AddMethod();">Add Method</a></li>
+      <li class="divider"></li>
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.InterfaceMenu.Delete();">Delete</a></li>
+    </ul>
+  </div>
+  
+  <div id="namespaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.NamespaceMenu.Delete();">Delete</a></li>
+    </ul>
+  </div>
+
+  <div id="ArrowContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.ArrowMenu.Bend();">Bend</a></li>
+    </ul>
+  </div>
+
+<div id="typeSugestionList" class="dropdown clearfix context">
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+  </ul>
+</div>
+  
+
+ <div class="modal fade" id="modelWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="modelHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div id="modelHeaderContent"></div>
+      </div>
+      <div class="modal-body" id="modelContent">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="feedbackModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="modelHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div id="modelHeaderContent">Feedback</div>
+      </div>
+      <div class="modal-body" id="modelContent">
+        <p>Help us make Code Cooker better, let us know what you think:</p>
+        <form method="post" action="/Mail/Mail" >
+          <strong>Comment:</strong>
+          <textarea name="CommentText" id="CommentText" ></textarea>
+          <strong>e-mail address:</strong> (optional, but we can't reply without it.)<input type="text" name="email" id="email"/>
+          <br/>
+          <input type="submit" value="Submit" /> 
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div id="GroupActivity">
+		<div class="modal-header" id="modelHeader"> 
+				Group Activity
+				<button type="button" class="close" aria-hidden="true">&times;</button>
+		</div>
+		<div>
+			<div><span>GroupID:</span><br/><span id="groupID"></span><button class="btn-primary pull-right" onclick='window.Interface.GroupActivity.copyGroupID()'>To Clipboard</button></div>
+
+			<div id="groupChatt">
+				<div class="chattMessagesInner">
+				</div>
+
+			</div>
+			<div id="chattMessage">
+				<input type="text"></input>
+				<button class="btn-default">Send</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="WorkArea">
+
+    <a href="#" id="popoverLinkPropR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkPropL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+
+    <a href="#" id="popoverLinkMethR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkMethL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLink" class="popoverLink" data-html="true" data-toggle="popover" data-placement="bottom" data-content="" title="" data-original-title=""></a>
+		
+    <div id="svgWrapper">
+
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" >
+		
+			<defs>
+				    <pattern id="lines" x=".05" y=".05" width=".015" height=".01">
+    					<line x1="20" y1="0" x2="20" y2="100" style="stroke:black;stroke-width:0.5"/>
+    					<line x1="0" y1="20" x2="100" y2="20" style="stroke:black;stroke-width:0.5"/>
+				    </pattern> 
+
+				    <polygon id="arrowHeadU" pointer-events="none" points="0,0 3,10 -3,10"/>
+
+				 <filter id="Background">
+                	<feTurbulence baseFrequency= ".01" type = "fractalNoise" numOctaves = "3"/>
+                </filter>
+            </defs>
+
+        <linearGradient y2="1" x2="0" id="g" spreadMethod="repeat">
+          <stop stop-color="#0F0F0F" offset="0" stop-opacity="1"/>
+          <stop stop-color="#424242" offset="0.10"/>
+          <stop stop-color="#424242" offset="0.90"/>
+          <stop stop-color="#0F0F0F" offset="1"/>
+      </linearGradient>
+
+			</defs>
+			<rect id="UMLBackground" onmousedown="window.UML.Pulse.BackgroundClick.pulse()" fill="#282828" onmouseup="window.UML.backgroundMouseUp()"  x="0" y="0"  width="100%" height="100%"/>
+      <rect id="classLayerMarker" x="0" y="0" fill-opacity="1"/>
+      <rect id="namespaceLayerMarker" x="0" y="0" fill-opacity="1"/>
+		</svg>
+		</div>
+</div>
+
+<footer>
+ <div class="navbar navbar-inverse" id="navBar">
+  <div class="navbar-inner">
+    <ul class="nav rollout-list">
+      <li onclick='$("#feedbackModel").modal()'><img src="../img/feedback.png"/ class="pull-left" height="20" width="20"><span>Feedback</span></li>
+    </ul>
+    <ul class="nav pull-right">
+      <li class="pull-right divider-vertical"></li>
+      <li id="groupActivityTab" class="note navBar-clickable" onclick="window.Interface.GroupActivity.toggel();">Group Activity</li>
+      <li class="pull-right divider-vertical"></li>
+      <li class="pull-right note">
+        <div id="statusBar">
+          <div>Downloading File</div>
+          <div>
+            <div class="bar"><span></span></div>
+         </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

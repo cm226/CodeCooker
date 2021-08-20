@@ -1,0 +1,19 @@
+﻿.interfaceObj .classBox
+{
+	fill :#99CCFF;
+}
+
+.interfaceObj .ClassBarSeperator
+{
+    stroke:#0066FF;
+}
+
+.interfaceObj .classPropertyDropdown
+{
+    fill:#0066FF;
+}
+
+.interfaceObj .classPropertyDropdown:hover
+{
+    fill:#0033CC;
+}

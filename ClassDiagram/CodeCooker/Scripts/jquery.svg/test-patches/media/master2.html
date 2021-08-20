@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+            
+        <title>test/demo for svg inclusion</title>
+            
+        <meta name="description" content="testing svg inclusion on different browsers">
+        <meta name="author" content="Rémi Emonet">
+        <!--meta name="viewport" content="width=1024, user-scalable=no"/-->
+            
+        <script src="../modernizr.custom.js"></script>
+        <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+        <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../jquery-1.7.2.min.js"><\/script>')</script>
+        <script src="../../jquery.svg.js"></script>
+
+<style type="text/css">
+body {background: #BBB}
+</style>
+</head>
+
+<!-- for the demo, the body is not the container so it can be resized by the user -->
+<body>
+
+    <h1>Include with object tag</h1>
+    <object type="image/svg+xml" data="include.svg">
+        <p>N/A.</p>
+    </object>
+
+    <h1>Include with embed tag</h1>
+    <embed src="include.svg" />
+
+    <h1>Include with iframe tag</h1>
+    <iframe src="include.svg" frameborder="0" >
+        <p>N/A.</p>
+    </iframe>
+
+    <h1>Include with img tag</h1>
+    <img src="include.svg"/>
+
+    <h1>Javascript copy/paste here, original jquery-svg</h1>
+    <button onclick="
+                     $('.forSVG').css({width: 300, height: 100});
+                     $('.forSVG').svg({loadURL: 'include.svg', forceKeepRelativePath: true});
+                ">click me</button>
+    <div class="forSVG"></div>
+
+    <h1>Javascript copy/paste here, patched jquery-svg</h1>
+    <button onclick="
+                     $('.forSVGFixed').css({width: 300, height: 100});
+                     var that = this;
+                     $('.forSVGFixed').svg({loadURL: 'include.svg', onLoad: function(_,w,h) {$(that).text(w + ' x ' + h)}});
+                     
+                ">click me</button>
+    <div class="forSVGFixed"></div>
+
+    <h1>Manual copy/paste here</h1>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="199.79099"
+   height="125.31936"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48+devel r"
+   sodipodi:docname="include.svg">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       id="filter844"
+       style="color-interpolation-filters:sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.2501658"
+         id="feGaussianBlur846" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="73.556914"
+     inkscape:cy="-113.95909"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     width="372.04724px"
+     height="0px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="682"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.98680687,-700.99746)">
+    <rect
+       style="color:#000000;color-interpolation:sRGB;color-interpolation-filters:linearRGB;fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter844);enable-background:accumulate;clip-rule:nonzero"
+       id="rect814-3"
+       width="165.49248"
+       height="103.43279"
+       x="16.162441"
+       y="711.94073" />
+    <rect
+       style="color:#000000;color-interpolation:sRGB;color-interpolation-filters:linearRGB;fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;clip-rule:nonzero"
+       id="rect814"
+       width="165.21159"
+       height="103.25726"
+       x="16.162441"
+       y="711.94073" />
+    <rect
+       style="color:#000000;color-interpolation:sRGB;color-interpolation-filters:linearRGB;fill:#ffffff;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;clip-rule:nonzero"
+       id="rect816"
+       width="47.982246"
+       height="19.950512"
+       x="36.870571"
+       y="701.83917" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="40.153564"
+       y="718.50671"
+       id="text810"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan812"
+         x="40.153564"
+         y="718.50671">SVG</tspan></text>
+    <image
+       xlink:href="media/content.png"
+       width="138.28572"
+       height="78.571426"
+       id="image1025"
+       x="28.714272"
+       y="727.7193" />
+  </g>
+</svg>
+
+</body>
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Free Online Class Diagram Tool</title>
+  <meta name="description" content="Code Cooker is a free online UML class diagram moddeling tool with code generation for C# C++ and Coffeescript languages. ">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap-responsive.min.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script language="javascript" type="application/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript"src="home.js"></script>
+  <link rel="stylesheet" type="text/css" href="../Style/Logo.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/home.css">  
+  <link rel="stylesheet" type="text/css" href="../Style/belowTheFold.css">  
+
+</head>
+
+<body>
+<div id="wrap">
+  <div class="navbar navbar-inverse navbar-static-top" id="navBar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><div id="logo"><span class="console">{Code}</span><img src="cauldrin-small.svg" style="height:24px;width:24px;"/><span class="cooker">Cooker</span></div></li>          
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="window.UML.Utils.CreateJSONForModel();">Save</a></li>
+            <li><a href="#" onclick="window.UML.Utils.doSaveAs();">Save As</a></li>
+           <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">GenCode</a>
+            <ul class="dropdown-menu">
+              <li><a href="#" onclick="window.UML.Utils.CreateJSONForModel();">C++</a></li>
+              <li><a href="#" onclick="window.UML.Utils.CreateJSONForModel();">C#</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+       <li><a href="#">Settings</a></li>
+    </ul>
+    
+    <ul class="nav pull-right">
+      <li><a href="#" onclick="window.open('help.html','Help','width=400,height=500');">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="aboveTheFold" id="loginsliderTop">
+  <div class="foldContent center">
+    <div class="logoTable">
+    <span class="console largeText">{Code}</span>
+    <object data="cauldrin-large.svg" type="image/svg+xml" style="height:140px;width:100px;"></object></div>
+    <div id="cooker" class="logoTable">
+      <span class="cooker largeText">Cooker</span>
+    </div>
+  </div>
+</div>
+<div>
+<div id="loginButtons" class="center" style="width:182px; height:0px;">
+  <img src="../img/Red-signin_Long_base_44dp.png" style="height:40px;padding: 7px;"/>
+</div>
+<div class="aboveTheFold" id="loginSlider">
+  <div class="center" id="loginBttn"><a id="loginBttnText" onClick="toggleLogin();">Login</a></div>
+</div>
+</div>
+
+<div class="belowTheFold">
+    <div class="container">
+      <div class="row">
+        <div class="span4" >
+          <h3 class="centerText">Zero Hassle UML</h3>
+          <div class="center" style="height:40px;width:40px;"><img src="Cdiag.svg"/></div>
+            <p>
+              Code Cooker is a free online UML class diagram tool. It works in your browser so there is none of this nasty business with installers. Save and load your UML models to and from your google drive.
+            </p>
+        </div>
+        <div class="span4" >
+          <h3 class="centerText">Code Generation</h3>
+          <div class="center" style="height:40px;width:40px;"><img src="Page.svg"/></div>
+            <p>At the moment we have C#, C++ and coffeescript code generators, not to worry if these don't meet your needs though, because we have more on the way.</p>
+        </div>
+        <div class="span4" >
+          <h3 class="centerText">Sandbox Mode</h3>
+            <div class="center" style="height:40px;width:40px;"><img src="Sandbox.svg"/></div>
+            <p>Just here to try Code Cooker out? Why don't you jump right in with our Sandbox Mode. You won't be able to save your models but it's the fastest way to get some hands on experience with the Code Cooker service. </p>
+        </div>
+     </div>
+      <div class="row">
+	      <div class="span12 text-center">
+	      	<img src="../img/drive_outline-small.png" />
+	      </div>
+    </div>
+   </div>
+</div>
+</div>
+
+  <div id="footer">
+    <div class="container">
+      <p class="muted credit">&copy; 2014 - Code Cooker(Alpha) V @version By Craig Matear</p>
+    </div>
+  </div>
+
+</body>
+<html>

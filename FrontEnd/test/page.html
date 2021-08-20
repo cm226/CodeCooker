@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset='UTF-8' />
+      <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+ 
+      <title>jQuery.simpleFAQ QUnit Test Runner</title>
+ 
+      <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
+ 
+      <!-- add any external libraries your code needs -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+      <script type="text/javascript">
+        // Phantom js dosent support bind
+        Function.prototype.bind = Function.prototype.bind || function (thisp) {
+        var fn = this;
+          return function () {
+          return fn.apply(thisp, arguments);
+        };
+      };</script>
+
+      <script src='../js/full.js'></script>
+      <!-- add any JS files under test (or put them in different .html files) -->
+ 
+      <script src="http://code.jquery.com/qunit/qunit-1.14.0.js"></script>
+
+      <script type="text/javascript">
+        QUnit.config.autostart = false;
+      </script>
+
+      <script src="..\..\ClassDiagram\CodeCooker\Scripts\coopHighLatency.js"></script>
+
+      <!-- your tests, any and all to run with the given fixtures below -->
+      <script src='PropertyModelConsistancy.js'></script>
+      <script src='MethodModelConsistancy.js'></script>
+      <script src='ClassModelConsistancy.js'></script>
+      <script src='InterfaceModelConsistancy.js'></script>
+      <script src='ArrowAttatch.js'></script>
+      <script src='ArrowSerialisationTests.js'></script>
+      <script src='ClassCreation.js'></script>
+      <script src='InterfaceCreation.js'></script>
+      <script src='PropertyCreation.js'></script>
+      <script src='MethodCreation.js'></script>
+
+      <script type="text/javascript">
+      window.UML.MODEL.ModelGlobalUtils.listener = {
+        ListenToNewMode: function(model) {
+          return;
+        },
+        StopListening: function() {
+          return;
+        }};
+        
+      window.UML.MODEL.ModelGlobalUtils.ListIDManager = new window.UML.MODEL.ModelIDManager({
+          currentID : 0,
+          maxOverrideAllocated : 0,
+          Request: function(){
+              ListIDManager = window.UML.MODEL.ModelGlobalUtils.ListIDManager
+              ListIDManager.AddToWorkingSet(this.currentID, this.currentID+50);
+              this.currentID = this.currentID+50;},
+          FlushIDs: function(){
+              this.currentID = 0;
+          },
+
+          allocateOverrideID: function(){
+            if(id > this.maxOverrideAllocated)
+              this.maxOverrideAllocated = id
+
+            this.currentID = this.maxOverrideAllocated+1}
+        });
+
+      window.UML.MODEL.ModelGlobalUtils.ItemIDManager = new window.UML.MODEL.ModelIDManager({
+        currentID : 0,
+        maxOverrideAllocated : 0,
+        Request: function(){
+          ItemIDManager = window.UML.MODEL.ModelGlobalUtils.ItemIDManager
+          ItemIDManager.AddToWorkingSet(this.currentID, this.currentID+50);
+          this.currentID = this.currentID+50;},
+
+        FlushIDs: function(){
+          this.currentID = 0;
+        },
+
+        allocateOverrideID:function(){
+          if(id > this.maxOverrideAllocated)
+            this.maxOverrideAllocated = id
+
+          this.currentID = this.maxOverrideAllocated+1}
+      });
+
+
+        globals = new Globals()
+        window.UML.globals = globals
+
+        QUnit.start();
+      </script>
+      
+
+
+  </head>
+  <body>
+    <div id="qunit"></div> <!-- QUnit fills this with results, etc -->
+    <div id='qunit-fixture'>
+ 
+      <!-- any HTML you want to be present in each test (will be reset for each test) -->
+ 
+    </div>
+  </body>
+</html>

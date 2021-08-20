@@ -1,0 +1,104 @@
+﻿@{
+    if (ViewBag.modelCreatedWithOlderVersion == null)
+    {
+        ViewBag.modelCreatedWithOlderVersion = false;
+    }
+    
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+
+    @switch((int)ViewBag.themeID)
+    {
+        case (int)CodeCooker.Models.ThemeValues.CODECOOKER:
+            @Styles.Render("~/content/ClassDiagramStyle/CodeCooker");
+        break;
+
+        default:
+            @Styles.Render("~/content/ClassDiagramStyle/Default");
+        break;
+    }
+    @Scripts.Render("~/content/ClassDiagramScript")
+
+
+    <script type="text/javascript">
+
+        function initialiseDocument()
+        {
+            $(function () {
+                var test = $('button[rel=tooltip]');
+                test.tooltip();
+
+                $("#tabs").tabs();
+                $('#popoverLink').popover();
+                $("#toolBar").animate({
+                    left: "0px"
+                }, 1000);
+                $("#commentButton").animate({
+                    bottom: "0px"
+                }, 1000);
+
+                $(".rollout-list li").mouseover(function () {
+                    window.Interface.RolloverList.animateOpen(this)
+                })
+                $(".rollout-list li").mouseleave(function () {
+                    window.Interface.RolloverList.animateClose(this)
+                })
+
+                $("#GroupActivity #modelHeader .close").click(function () { window.Interface.GroupActivity.close(); })
+                $("#chattMessage button").click(function () { window.Interface.GroupActivity.sendMessage(window.Interface.CoOpChatt); })
+                // listen for return key on message box
+                $("#chattMessage input").keyup(function (e) {
+                    if (e.keyCode == 13) {
+                        window.Interface.GroupActivity.sendMessage(window.Interface.CoOpChatt);
+                    }
+                });
+
+                window.Interface.StatusBar.setReadyState();
+
+            });
+
+            @{
+                string version = CodeCooker.Properties.Resources.Version;
+            }
+            window.UML.globals.CommonData.version = "@version";
+
+        }
+
+        
+
+        @if (@ViewBag.documentID == null)
+        {
+            <text>            
+            window.UML.Pulse.Initialise.add(window.UML.Utils.displayChangeFilename);
+            window.UML.Pulse.Initialise.add(initialiseDocument);
+        </text>
+        }
+        else
+        {
+            <text>
+            window.UML.Pulse.Initialise.add(function () {
+                window.Interface.StatusBar.setLoadingStatus("Downloading File")
+                window.UML.Utils.SendPost(null, '/File/DownloadFile?fileId=@ViewBag.documentID',
+                window.UML.Utils.InitialiseModelFromJSON);
+            });
+            </text>
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+    @RenderSection("Scripts", required: false)
+</html>

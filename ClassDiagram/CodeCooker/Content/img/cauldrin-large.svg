@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<script type="text/javascript"> <![CDATA[
+svg = null;
+	function bubble()
+	{
+		this.bubble = document.createElementNS("http://www.w3.org/2000/svg", 'use');
+		this.bubble.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href','#bubble');
+		this.x = (Math.random()*80)+10;
+		this.y = (Math.random()*50)+10;
+		this.speed = (Math.random()*4)+1;
+		svg.appendChild(this.bubble);
+
+		this.move = function()
+		{
+			this.y -= this.speed;
+			if(this.y < 0)
+			{
+				this.y = 60;
+				this.x = (Math.random()*80)+10;
+			}
+
+			this.bubble.setAttribute("x",this.x);
+			this.bubble.setAttribute("y",this.y);
+		}
+
+	}
+
+	bubbles = new Array();
+    function doBubbles()
+    {
+    	for(var i =0; i < 8; i++)
+    	{
+    		bubbles[i].move();
+    	}
+    }
+
+    (function() {
+    	svg = document.getElementsByTagName('svg')[0];
+    	bubbles[0] = new bubble();
+    	bubbles[1] = new bubble();
+    	bubbles[2] = new bubble();
+    	bubbles[3] = new bubble();
+    	bubbles[4] = new bubble();
+    	bubbles[5] = new bubble();
+    	bubbles[6] = new bubble();
+    	bubbles[7] = new bubble();
+    	setInterval(doBubbles,50);
+
+	})();
+]]>
+</script>
+
+<defs>
+	<circle id="bubble" cx="0" cy="0" r="6" style="fill:none; stroke:#FF6600;"/>
+</defs>
+<rect x="10" y="60" height="15" width="80" rx="3" ry="3" fill="#666666"/>
+<circle cx="50" cy="100" r="40" fill="#666666"/>
+
+</svg>

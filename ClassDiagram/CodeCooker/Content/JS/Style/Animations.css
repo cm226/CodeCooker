@@ -1,0 +1,24 @@
+
+@keyframes hoverFillAnimation
+{
+	from {fill: #333333;}
+	to {fill: #0000FF;}
+}
+
+@-webkit-keyframes hoverFillAnimation /* Safari and Chrome */
+{
+	from {fill: #333333;}
+	to {fill: #0000FF;}
+}
+
+@keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}
+
+@-webkit-keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}

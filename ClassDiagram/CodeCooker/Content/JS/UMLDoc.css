@@ -1,0 +1,40 @@
+.classBox
+{
+	fill: white;
+	stroke: black;
+	stroke-width: 2;
+}
+
+.ClassName
+{
+	fill: white;
+	font-weight:bold;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+}
+
+.ClassHeaderBar
+{
+	fill: #333333;
+}
+
+
+.ClassHeaderBarHover
+{
+	animation: hoverFillAnimation 0.2s;
+	-webkit-animation: hoverFillAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	cursor:move;
+}
+
+.ClassOutlineHover
+{
+	animation: hoverStrokeAnimation 0.2s;
+	-webkit-animation: hoverStrokeAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	stroke: #8CBAFF;
+}
+

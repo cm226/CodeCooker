@@ -1,0 +1,119 @@
+#body
+{
+	overflow-x:hidden;
+}
+
+.clear
+{
+	clear:both;
+}
+
+
+#body .pull-left
+{
+		-webkit-box-shadow: 3px 6px 21px 2px rgba(0,0,0,0.75);
+		-moz-box-shadow: 3px 6px 21px 2px rgba(0,0,0,0.75);
+		box-shadow: 3px 6px 21px 2px rgba(0,0,0,0.75);
+		
+		trasform: rotate(0deg) scale(1) skew(-26deg) translate(-100px);
+		-webkit-transform: rotate(0deg) scale(1) skew(-26deg) translate(-100px);
+		-moz-transform: rotate(0deg) scale(1) skew(-26deg) translate(-100px);
+		-o-transform: rotate(0deg) scale(1) skew(-26deg) translate(-100px);
+		-ms-transform: rotate(0deg) scale(1) skew(-26deg) translate(-100px);
+
+		margin-top: 30px;
+		width: 70%;
+}
+
+
+#body .pull-right
+{
+		background: rgb(40,40,40); 
+		-webkit-box-shadow: -3px 6px 21px 2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -3px 6px 21px 2px rgba(0,0,0,0.75);
+		box-shadow: -3px 6px 21px 2px rgba(0,0,0,0.75);
+		
+		trasform: rotate(0deg) scale(1) skew(-26deg) translate(100px);
+		-webkit-transform: rotate(0deg) scale(1) skew(-26deg) translate(100px);
+		-moz-transform: rotate(0deg) scale(1) skew(-26deg) translate(100px);
+		-o-transform: rotate(0deg) scale(1) skew(-26deg) translate(100px);
+		-ms-transform: rotate(0deg) scale(1) skew(-26deg) translate(100px);
+
+		margin-top: 30px;
+		width:90%;
+}
+
+#body .pull-right .rightContent
+{
+	padding: 30px;
+	padding-left: 50px;
+	padding-right: 140px;
+
+	trasform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-webkit-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-moz-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-o-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-ms-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+}
+
+#body .pull-left .leftContent
+{
+	padding : 10px;
+	padding-left: 130px;
+	width: 80%;
+
+	trasform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-webkit-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-moz-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-o-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+	-ms-transform: rotate(0deg) scale(1) skew(26deg) translate(0px);
+}
+
+
+.whiteText
+{
+	color: #CCCCCC;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+.FullPage
+{
+	height:100vh;
+	width:100%;
+	overflow: hidden
+}
+
+.FullPageDark
+{
+	background-color: #333333;
+}
+
+#roadMap
+{
+	margin-top: 50px;
+	
+	
+
+	text-transform:uppercase;
+}
+
+#roadMap li
+{
+	line-height: 30px;
+	list-style-type: none;
+}
+
+#roadMap .row
+{
+	padding-top: 40px;
+}
+
+.inset-text {
+    /* Shadows are visible under slightly transparent text color */
+    color: rgba(20,20,20, 0.8);
+    text-shadow: 1px 4px 6px #333333, 0 0 0 #000, 1px 4px 6px #333333;
+
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 4em;
+    line-height: 1em;
+}

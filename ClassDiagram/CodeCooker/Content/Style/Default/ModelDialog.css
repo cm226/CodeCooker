@@ -1,0 +1,14 @@
+.modal-header
+{
+	background-image: linear-gradient(to bottom, #222222, #111111);
+	background-repeat: repeat-x;
+	border-color: #252525;
+	color: #FF6600;
+}
+
+.modal-header .close
+{
+	color: #FF6600;	
+	text-shadow: none;
+	opacity: 1;
+}

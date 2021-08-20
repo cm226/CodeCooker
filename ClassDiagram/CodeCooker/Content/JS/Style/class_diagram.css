@@ -1,0 +1,103 @@
+body, html
+{
+	margin:0px;
+	border:0px;
+	height:100%;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+svg
+{
+	width:100%;
+	height:2000px;
+}
+
+#WorkArea
+{
+}
+
+#svgWrapper
+{
+	width:100%;
+	height:100%;
+	overflow: scroll;
+	background-color: #D4D4D4;
+	
+}
+
+#toolBar
+{
+	width: 25px;
+	height: 300px;
+	position: fixed;
+
+	Top: 50px;
+	left: 10px;
+
+	background-color: white;
+
+	background: #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+#toolBar .btn-group-vertical
+{
+	width: 100%;
+	margin-top: 10px;
+}
+
+#toolBar .btn-group-vertical button
+{
+	width: 100%;
+	background: transparent;
+	border: none;
+}
+
+#toolBar .btn-group-vertical button:hover
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+.roundedCorners
+{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.dropZone:hover
+{
+	cursor:pointer;
+}
+
+.objectIcon
+{
+	height:60px;
+}
+
+.classAttribute
+{
+	font-family: Verdana, Geneva, sans-serif;
+	font-style:italic;
+}
+
+.classHeader:hover
+{
+	cursor:move;
+}
+
+.arrowDrag:hover
+{
+
+	cursor:move;
+}
+

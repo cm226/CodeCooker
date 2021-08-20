@@ -1,0 +1,22 @@
+.popOverItem
+{
+	float: left;
+}
+
+.popoverSelect
+{
+	width: 150px;
+	margin-left: 10px;
+}
+
+.popoverRow
+{
+	height:30px;
+}
+
+#classPropertyDescription
+{
+	width: 95%;
+	height: 70px;
+	resize: none;
+}

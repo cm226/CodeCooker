@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAjax.cshtml";
+}
+
+@if (ViewBag.modelCreatedWithOlderVersion)
+{
+    <text>0</text> //set bit indicateing that there is a problem (0)
+    String docName = ViewBag.docmentName as String;
+    Html.RenderPartial("~/Views/ClassDiagram/LegasyModelMessage_Partial.cshtml", docName);
+}
+else
+{
+     <text>1</text> // set bit indicateing all worked well
+     @Html.Raw(ViewBag.document);
+}

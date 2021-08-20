@@ -1,0 +1,77 @@
+2d grid of ocupied sections
+2-way translation (ocupied section to list of elements(model ID?) and from modelIds to occupide section)
+
+derrived classes below inherited ones. 
+sibblings at same y position but translated X
+
+insert new element:
+	select empty space off size x, y boxes searching in x, y order diagnally outward
+
+derrive from element
+	find derrived element, translate all non siblings vertically 
+	if can fit on sibling level withought interference from other structures then do so searching for space from left to right.if no space then translate all other elements right. 
+	re position parent element above center of siblings
+
+un-derriving an element will cause the reverse of the derrive from element opperation and the un-derrived element
+to be placed in the codument as per the insert new element section.
+
+layout engine will need to listen to arrows models
+
+layout engine interface 
+	PlaceElement(modelItemID)
+
+
+placeElement PC
+	add id to list of placed elememts
+	consult arrows list for parent or children
+	if any parent or children:
+
+		if has parent only
+			consult arrows for sibblings
+			if has siblings
+				find rightmost sibling
+				if there is space at right most sibling
+					put box in there
+				else
+					select height of sibbling and shift elements on the right right.
+			else
+				slect everything under sibling and move down
+				put child directly inder sibling
+
+		if has children only
+			if space abouve children, put it there
+			else select all children and shift down
+
+		if it has parent and children, do both of aboue steps.
+
+	else
+		current box = boxes((0,0) , (n,n))
+
+		diagnal = 1
+		while space not found and not at edge
+			
+			for position in 0 .. diagnal
+				currentbox.moveTo(position, diagnal)
+				if currentbox.isEmpty()
+					break
+				currentbox.moveTo(diagnal, position)
+				if currentbox.isEmpty()
+					break
+			
+			diagnal++
+
+		if currentBox.isEmpty()
+			place element
+
+
+layout grid
+
+need to be able to group elements into structures so that they can be moved all togeather, a structure will have no gaps 
+inside its bounds i.e the group will be one large block. the interface should have metheds where by lines of blocks can be 
+selected and the contentce of those blocks and anything below them should be moved up/down for horizontal lines
+of left/right for vertical lines. 
+
+if there are any gaps between elements and are closed by a shift then the elements after the gaps will be pushed after
+the gap has closed.
+
+the layout grid will also need a query is empty method as well.

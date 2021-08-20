@@ -1,0 +1,172 @@
+.classBox
+{
+	stroke: none;
+	stroke-width: 1px;
+	fill :#66FF66;
+    filter:url(#dropshadow)
+}
+
+.TextElement
+{
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	letter-spacing: 0pt;
+}
+
+.ClassName
+{
+	fill: black;
+}
+
+.greyText
+{
+	fill: #666666;
+}
+
+.ClassTextAttribute
+{
+	font-weight: bold;
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	font-style: italic;
+	letter-spacing: 0pt;
+}
+
+.ClassBarSeperator
+{
+    shape-rendering:crispEdges;
+	stroke-width:1px;
+	stroke:#006600;
+}
+
+.ClassSectionHeader
+{
+    font-style: italic;
+    font-weight: 100;
+    font-size: small;
+    fill: #006600;
+}
+
+.ClassHeaderBar
+{
+	
+}
+
+
+@keyframes hoverFillAnimation
+{
+	from {fill: #333333;}
+	to {fill: #8CBAFF;}
+}
+
+@-webkit-keyframes hoverFillAnimation /* Safari and Chrome */
+{
+	from {fill: #333333;}
+	to {fill: #8CBAFF;}
+}
+
+@keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}
+
+@-webkit-keyframes hoverStrokeAnimation
+{
+	from {stroke: #333333;}
+	to {stroke: #0000FF;}
+}
+
+
+.ClassHeaderBarHover
+{
+	animation: hoverFillAnimation 0.2s;
+	-webkit-animation: hoverFillAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.classObj:hover
+{
+	cursor:move;
+}
+
+.EditBoxRow:hover
+{
+	cursor:pointer;
+}
+
+.EditBox:hover
+{
+	cursor: pointer;
+}
+
+.ClassOutlineHover
+{
+	animation: hoverStrokeAnimation 0.2s;
+	-webkit-animation: hoverStrokeAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	stroke: #000066;
+}
+
+.selectedRow
+{
+	fill-opacity : 1;
+	fill: #FFFFFF;
+}
+
+.AbstractMethod
+{
+	 font-style : italic;
+
+}
+/*========================== Class Dropdown Box ==================================*/
+
+.classPropertyDropdown
+{
+	stroke: black;
+	stroke-width: 1px;
+	fill:#00CC00;
+}
+
+.classPropertyDropdown:hover
+{
+	stroke: none;
+	fill:#006600;
+	cursor: pointer;
+}
+
+
+.classPropertyArrow
+{
+	fill:none;
+	stroke:black;
+	stroke-width:1
+}
+
+/*======================SVG Button =====================*/
+
+.classObj .SVGButton
+{
+    fill: #66FF33;
+    stroke: green;
+}
+
+.classObj .SVGButton:hover
+{
+    fill-opacity: 1;
+    stroke-opacity: 1;
+    cursor: pointer;
+}
+
+.classObj .SVGButton .SVGBttnText
+{
+    fill: black;
+    stroke: none;
+    font-size: 10px;
+    font-weight: bold;  
+}

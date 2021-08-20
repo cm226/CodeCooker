@@ -1,0 +1,124 @@
+.classBox
+{
+	stroke: black;
+	stroke-width: 1px;
+	fill:url(#classDarkGradient)
+}
+
+.ClassName
+{
+	fill: #FF6600;
+}
+
+.TextElement
+{
+	fill: #E6E6E6;
+}
+
+.ClassTextAttribute
+{
+	font-weight: bold;
+	font-family: arial, sans-serif;
+	font-size: 15px;
+	font-style: italic;
+	letter-spacing: 0pt;
+}
+
+.ClassBarSeperator
+{
+	stroke-width:1px;
+	stroke:grey;
+}
+
+.ClassHeaderBar
+{
+}
+
+.greyText
+{
+	fill: #B2B2B2;
+}
+
+
+.ClassHeaderBarHover
+{
+	
+}
+
+.classObj:hover
+{
+	cursor:move;
+}
+
+.EditBoxRow:hover
+{
+	cursor:pointer;
+}
+
+.EditBox:hover
+{
+	cursor: pointer;
+}
+
+.ClassOutlineHover
+{
+	stroke:#E6E6E6;
+}
+
+.selectedRow
+{
+	fill-opacity : 1;
+	fill: #000000;
+}
+
+.AbstractMethod
+{
+	 font-style : italic;
+
+}
+/*========================== Class Dropdown Box ==================================*/
+
+.classPropertyDropdown
+{
+	stroke: #737373;
+	stroke-width: 1px;
+	fill:none;
+}
+
+.classPropertyDropdown:hover
+{
+	stroke: none;
+	fill:#FF6600;
+	cursor: pointer;
+}
+
+
+.classPropertyArrow
+{
+	fill:none;
+	stroke:#737373;
+	stroke-width:1
+}
+
+/*======================SVG Button =====================*/
+
+.classObj .SVGButton
+{
+    fill: #FF8533;
+    stroke: #FF6600;
+}
+
+.classObj .SVGButton:hover
+{
+    fill-opacity: 1;
+    stroke-opacity: 1;
+    cursor: pointer;
+}
+
+.classObj .SVGButton .SVGBttnText
+{
+    fill: black;
+    stroke: none;
+    font-size: 10px;
+    font-weight: bold;  
+}

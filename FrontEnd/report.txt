@@ -1,0 +1,95 @@
+[4mRunning "concat:noMain" (concat) task[24m
+File js/full.coffee created.
+
+[4mRunning "coffee:compileBare" (coffee) task[24m
+
+[4mRunning "qunit:all" (qunit) task[24m
+Testing test/page.html CODE COOKER DEBUG MESSAGE: Requesting more Ids
+CODE COOKER DEBUG MESSAGE: Receved more ids
+CODE COOKER DEBUG MESSAGE: Requesting more Ids
+CODE COOKER DEBUG MESSAGE: Receved more ids
+........................type change check
+[31mF[39mtype change check
+[31mF[39mtype change check
+[31mF[39mtype change check
+[31mF[39mtype change check
+[31mF[39mCODE COOKER DEBUG MESSAGE: Requesting more Ids
+CODE COOKER DEBUG MESSAGE: Receved more ids
+type change check
+[31mF[39mtype change check
+[31mF[39mtype change check
+[31mF[39mtype change check
+[31mF[39m[31mF[39m[31mF[39m[31mF[39m[31mF[39m[31mF[39m
+[31m>> [39mArrow Attatch - Arrow Attatch from index 0
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:49: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch from index 1
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:98: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch from index 2
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:148: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch from index 3
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:196: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch to index 0
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:245: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch to index 1
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:294: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch to index 2
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:343: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch to index 3
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:392: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mArrow Attatch - Arrow Attatch to more than 1 index
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowAttatch.js:452: 'undefined' is not an object (evaluating 'Item.model.modelItemID')[39m
+[31m>> [39mTypeError: 'undefined' is not an object (evaluating 'Item.model.modelItemID')
+
+[31m>> [39mModel Serialisation - Arrow Searilisation
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ArrowSerialisationTests.js:37: 'undefined' is not a function (evaluating 'window.UML.Serialize.SerializeClass(arrowModel)')[39m
+[31m>> [39mTypeError: 'undefined' is not a function (evaluating 'window.UML.Serialize.SerializeClass(arrowModel)')
+
+[31m>> [39mClass Creation - Create Class
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/ClassCreation.js:73: 'null' is not an object (evaluating 'newClass.name')[39m
+[31m>> [39mTypeError: 'null' is not an object (evaluating 'newClass.name')
+
+[31m>> [39mInterface Creation - Interface Class
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/InterfaceCreation.js:60: 'null' is not an object (evaluating 'newClass.name')[39m
+[31m>> [39mTypeError: 'null' is not an object (evaluating 'newClass.name')
+
+[31m>> [39mProperty Creation - Create Property
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/PropertyCreation.js:19: 'undefined' is not a function (evaluating 'this.graphics.group.appendChild(this.graphics.border)')[39m
+[31m>> [39mTypeError: 'undefined' is not a function (evaluating 'this.graphics.group.appendChild(this.graphics.border)')
+
+[31m>> [39mMethod Creation - Create Method
+[31m>> [39mMessage: [35mDied on test #1     at http://code.jquery.com/qunit/qunit-1.14.0.js:132[39m[31m
+>> [39m[35m    at file:///C:/Users/cmate_000/Dropbox/ClassDiagramUML/class-uml-tool/FrontEnd/test/MethodCreation.js:25: 'undefined' is not a function (evaluating 'this.graphics.group.appendChild(this.graphics.border)')[39m
+[31m>> [39mTypeError: 'undefined' is not a function (evaluating 'this.graphics.group.appendChild(this.graphics.border)')
+
+[33mWarning: 14/38 assertions failed (350ms) Use --force to continue.[39m
+
+[31mAborted due to warnings.[39m

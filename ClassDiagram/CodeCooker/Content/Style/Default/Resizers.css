@@ -1,0 +1,11 @@
+
+.Resizer
+{
+	stroke:rgb(0,0,0);
+	stroke-width:4
+}
+
+.Resizer:hover
+{
+	cursor:crosshair;
+}

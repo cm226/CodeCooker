@@ -1,0 +1,375 @@
+﻿@{
+    ViewBag.Title = "Code Cooker";
+    Layout = "~/Views/ClassDiagram/_DiagramLayout.cshtml";
+}
+
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li><a style="padding:0px;" href="@Url.Content("~")"><div id="logo"><span class="console">{Code}</span><img src="~/Content/img/cauldrin-small.svg" style="height:24px;width:24px;" /><span class="cooker">Cooker</span></div></a></li>          
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
+            <ul class="dropdown-menu">
+                    <li><a href="#" onclick="window.UML.Utils.doSave();">Save</a></li>
+                    <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#">GenCode</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="window.UML.Utils.doGenCode('CPP');">C++</a></li>
+                            <li><a href="#" onclick="window.UML.Utils.doGenCode('CS');">C#</a></li>
+                            <li><a href="#" onclick="window.UML.Utils.doGenCode('COS');">Coffee Script</a></li>
+                            <li><a href="#" onclick="window.UML.Utils.doGenCode('JSON');">JSON</a></li>
+                        </ul>
+                    </li>
+             </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="window.UML.globals.CtrlZBuffer.Undo();">Undo <span class="note">(Ctrl+Z)</span></a></li>
+                    <li><a href="#" onclick="window.UML.globals.CtrlZBuffer.Redo();">Redo <span class="note">(Ctrl+Y)</span></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Co-Op</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="window.Interface.CoOpStartup.hostCoOpDoc();">Host Co-Op Document</a></li>
+                    <li><a href="#" onclick="window.Interface.CoOpMemberManagement.requestJoinGroup();">Connect to hosted document</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav pull-right">
+            <li><a href="#" onclick="window.open('@Url.Content("~/ClassDiagram/Help")','Help','width=400,height=500');">Help</a></li>
+            @Html.Partial("_LoginPartial")
+        </ul>
+    </div>
+</div>
+
+<div id="toolBar">
+    <div class="btn-group-vertical">
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateClass()"  rel="tooltip" data-placement="right" title="Class"><img src="/Content/img/class.png" /></button>
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateInterface();"  rel="tooltip" data-placement="right" title="Interface"><img src="/Content/img/interface.png" /></button>
+        <button type="button" class="btn-group-xs" onclick="window.UML.CreateNamespace();" rel="tooltip" data-placement="right" title="Namespace"><img src="/Content/img/Namespace.png" /></button>
+    </div>
+</div>
+
+<div id="contextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.AddProperty();">Add Property</a></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.AddMethod();">Add Method</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.contextMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+<div id="interfaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.InterfaceMenu.AddMethod();">Add Method</a></li>
+        <li class="divider"></li>
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.InterfaceMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+<div id="namespaceContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+      <li><a tabindex="-1" href="#" onClick="window.UML.globals.NamespaceMenu.Delete();">Delete</a></li>
+    </ul>
+</div>
+
+<div id="ArrowContextMenu" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+        <li><a tabindex="-1" href="#" onclick="window.UML.globals.ArrowMenu.Bend();">Bend(Alpha)</a></li>
+    </ul>
+</div>
+
+<div id="typeSugestionList" class="dropdown clearfix context">
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;"></ul>
+</div>
+
+ <div class="modal fade" id="modelWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="modelHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+         <div id="modelHeaderContent"></div>
+      </div>
+      <div class="modal-body" id="modelContent">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modelHighLatensy" tabindex="-1" role="dialog" aria-labelledby="modelHighLatensy" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" id="modelHeader">
+                <div id="modelHeaderContent">High Network latensy</div>
+            </div>
+            <div class="modal-body" id="modelContent">
+                It seems that you are experiencing a high network latensy with the server.
+                Trying to reconnect now.... Please wate.
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="feedbackModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" id="feedbackmodelHeader">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div id="modelHeaderContent">Feedback</div>
+            </div>
+            <div class="modal-body" id="feedbackmodelContent">
+                <p>Help us make Code Cooker better, let us know what you think:</p>
+                <form method="post" action="/Mail/Mail">
+                    <strong>Comment:</strong>
+                    <textarea name="CommentText" id="CommentText"></textarea>
+                    <strong>e-mail address:</strong> (optional, but we can't reply without it.)<input type="text" name="email" id="email" />
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
+                <script type='text/javascript'>
+                    $("#postCommentForm").submit(function (event) {
+                        event.preventDefault();
+                        var $form = $(this),
+                            url = $form.attr('action');
+                        var posting = $.post(url, { comment: $('#CommentText').val() });
+                        posting.done(function (data) {
+                            $("#feedbackmodelContent").html("<p>Thank you, your comment was posted successfully</p>");
+                        });
+                    });
+                </script>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="GroupActivity">
+    <div class="modal-header" id="modelHeader">
+        Group Activity
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+    </div>
+    <div>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-3">Group Info</a></li>
+                <li><a href="#tabs-1">Join Requests</a></li>
+                <li><a href="#tabs-2">Chat</a></li>
+            </ul>
+            <div id="tabs-1">
+                <ul id="joinRequestsLists">
+                </ul>
+            </div>
+            <div id="tabs-2">
+                <div id="groupChatt">
+                    <div class="chattMessagesInner">
+                    </div>
+                </div>
+                <div id="chattMessage">
+                    <input type="text"></input>
+                    <button class="btn-default">Send</button>
+                </div>
+            </div>
+            <div id="tabs-3">
+                <div class="groupIDInfo">
+                    <span class="note">GroupID:</span><br /><span id="groupID"></span>
+                    <button class="btn-default" onclick='window.Interface.GroupActivity.copyGroupID()'>To Clipboard</button>
+                </div>
+
+                <span class="membersHeader">Members:</span>
+                <div class="groupMembers">
+                   <ul id="groupMemberList">
+                   </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="WorkArea">
+    <a href="#" id="popoverLinkPropR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkPropL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+
+    <a href="#" id="popoverLinkMethR" class="popoverLink" data-html="true" data-toggle="popover" data-placement="right" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLinkMethL" class="popoverLink" data-html="true" data-toggle="popover" data-placement="left" data-content="" title="" data-original-title=""></a>
+    <a href="#" id="popoverLink" class="popoverLink" data-html="true" data-toggle="popover" data-placement="bottom" data-content="" title="" data-original-title=""></a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Help!</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        Classes
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    Classes can be created by clicking on the add class button on the top left corner of the screen. The classes stack so you have to
+                                    move the class to see subsiquetly created classes.
+                                    Classes can be moved by clicking and draging the header bar.
+
+                                    To activate a class click in the header bar, an activated class will turn blue.
+                                    To edit the content of the activated class click the grey tab on the left of the screen while the class you want to edit is activated. <br /><br />
+
+                                    In the pop out you can update the details of the current active class, make sure and click the update button at the bottom of the popout to make your changes are persistant. The active class can be changed while the pop-out is open and the details of the newly selected active class will be populated.
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        Arrows
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    If you hover over any of the four arrow drop points (dots) on a class the cursor will turn to a hand. To create an arrow hover over the arrow drop points, Click and drag to another drop point or release the arrow wherever you want to drop it.
+                                    <br /><br/>
+
+                                    To change where an arrow points to click and drag on the arrow body and the arrow will detatch from it's current connection.
+
+                                    The currently selected arrow is shown in red. The currently selected arrow can be deleted by pressing the delete button.
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div id="svgWrapper">
+
+       	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" >
+		
+			<defs>
+				    <pattern id="lines" x=".05" y=".05" width=".015" height=".01">
+    					<line x1="20" y1="0" x2="20" y2="100" style="stroke:black;stroke-width:1"/>
+    					<line x1="0" y1="20" x2="100" y2="20" style="stroke:black;stroke-width:1"/>
+				    </pattern> 
+
+				    <polygon id="arrowHeadU" pointer-events="none" points="0,0 5,15 -5,15"/>
+
+
+
+                <linearGradient y2="1" x2="0" id="classGreenGradient" spreadMethod="repeat">
+                    <stop stop-color="#006dcc" offset="0" stop-opacity="1" />
+                    <stop stop-color="#006dcc" offset="0.10" />
+                    <stop stop-color="#006dcc" offset="0.90" />
+                    <stop stop-color="#006dcc" offset="1" />
+                </linearGradient>
+
+                    <linearGradient y2="1" x2="0" id="classDarkGradient" spreadMethod="repeat">
+                        <stop stop-color="#0F0F0F" offset="0" stop-opacity="1" />
+                        <stop stop-color="#424242" offset="0.10" />
+                        <stop stop-color="#424242" offset="0.90" />
+                        <stop stop-color="#0F0F0F" offset="1" />
+                    </linearGradient>
+
+                <filter id="dropshadow" x="0" y="0" width="200%" height="200%">
+                    <feOffset result="offOut" in="SourceAlpha" dx="3" dy="3" />
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                </filter>
+
+			</defs>
+             <rect id="UMLBackground" onmousedown="window.UML.Pulse.BackgroundClick.pulse()" onmouseup="window.UML.backgroundMouseUp()" x="0" y="0" width="100%" height="100%" />
+            <rect id="classLayerMarker" x="0" y="0" width="0" height="0" fill-opacity="1"/>
+            <rect id="namespaceLayerMarker" x="0" y="0" width="0" height="0" fill-opacity="1"/>
+			
+		</svg>
+    </div>
+</div>
+
+<footer>
+    <div class="navbar navbar-inverse" id="navBar">
+        <div class="navbar-inner">
+            <ul class="nav rollout-list">
+                <li onclick='$("#feedbackModel").modal()'><img src="~/Content/img/feedback.png"/ class="pull-left" height="20" width="20"><span>Feedback</span></li>
+            </ul>
+            <ul class="nav pull-right">
+                <li class="pull-right divider-vertical"></li>
+                <li id="groupActivityTab" class="note navBar-clickable" onclick="window.Interface.GroupActivity.toggel();">Group Activity</li>
+                <li class="pull-right divider-vertical"></li>
+                <li class="pull-right note">
+                    <div id="statusBar">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+@section scripts {
+    <!--Script references. -->
+   <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
+    <!--Reference the SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.0.3.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="~/signalr/hubs"></script>
+    <!--SignalR script to update the chat page and send messages.-->
+    <script>
+        $(function () {
+            // Reference the auto-generated proxy for the hub.
+
+            var chat = $.connection.collaboratorHub;
+            var my_model_collaberation_id;
+
+            window.Interface.CoOpChatt.registerHandlers(chat.client);
+            window.Interface.CoOpStartup.registerHandlers(chat.client);
+            window.Interface.CoOpSinc.registerHandlers(chat.client);
+            window.Interface.CoOpMemberManagement.registerHandlers(chat.client);
+
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+
+                window.Interface.CoOpChatt.startup(chat.server);
+                window.Interface.CoOpStartup.startup(chat.server);
+                window.Interface.CoOpSinc.startup(chat.server);
+                window.Interface.CoOpMemberManagement.startup(chat.server);
+            });
+        });
+    </script>
+}

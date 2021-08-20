@@ -1,0 +1,33 @@
+.ArrowLine
+{
+	stroke:black;
+	stroke-width:1;
+	fill:black;
+}
+
+.ArrowHead
+{
+	stroke:black;
+	stroke-width:1;
+	fill: none;
+}
+
+.ArrowHeadHover
+{
+	animation: hoverFillAnimation 0.2s;
+	-webkit-animation: hoverFillAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	stroke: #0000FF;
+}
+
+.ArrowOutlineHover
+{
+	animation: hoverStrokeAnimation 0.2s;
+	-webkit-animation: hoverStrokeAnimation 0.2s; 
+
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	stroke: #0000FF;
+}

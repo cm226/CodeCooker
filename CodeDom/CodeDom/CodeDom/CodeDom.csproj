@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0434904-3E08-4373-9798-A097E44D5604}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeDom</RootNamespace>
+    <AssemblyName>CodeDom</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoffeeScriptHttpHandler">
+      <HintPath>..\packages\CoffeeSharp.0.5\lib\CoffeeScriptHttpHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="CoffeeSharp">
+      <HintPath>..\packages\CoffeeSharp.0.5\lib\CoffeeSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\CoffeeSharp.0.5\lib\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\CodeDomException.cs" />
+    <Compile Include="IDefaultTypeValue.cs" />
+    <Compile Include="IWriteable.cs" />
+    <Compile Include="OO\AbstractClass.cs" />
+    <Compile Include="OO\AbstractOOCodeGenerator.cs" />
+    <Compile Include="Dependancy.cs" />
+    <Compile Include="OO\C++\CppClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OO\C++\CppCodeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OO\C++\CPPDependancyToString.cs" />
+    <Compile Include="OO\CoffeeScript\CoffeeClass.cs" />
+    <Compile Include="OO\CoffeeScript\CoffeeInterface.cs" />
+    <Compile Include="OO\CoffeeScript\CoffeescriptGlobals.cs" />
+    <Compile Include="OO\CoffeeScript\CoffeeWritter.cs" />
+    <Compile Include="OO\CS\CSConstructor.cs" />
+    <Compile Include="OO\CS\DomCompleters\AbstractMethodDetector.cs" />
+    <Compile Include="OO\CS\DomCompleters\DuplicateUsingRemover.cs" />
+    <Compile Include="OO\CS\VisibilityToString.cs" />
+    <Compile Include="OO\Dom\Completeres\ArgumentPairing.cs" />
+    <Compile Include="OO\Dom\Completeres\CompleterDecorator.cs" />
+    <Compile Include="OO\Dom\Completeres\ConstructorsCompleater.cs" />
+    <Compile Include="OO\Dom\Completeres\EasyComplete.cs" />
+    <Compile Include="OO\Dom\Completeres\OverrideCompleter.cs" />
+    <Compile Include="OO\Dom\Completeres\VoidDetector.cs" />
+    <Compile Include="OO\Dom\NamespaceGroup.cs" />
+    <Compile Include="OO\Dom\Namespaces.cs" />
+    <Compile Include="OO\JSON\JSONClass.cs" />
+    <Compile Include="OO\JSON\JSONWritter.cs" />
+    <Compile Include="OO\Utils\BlockComment.cs" />
+    <Compile Include="OO\Utils\DirectoryResolver.cs" />
+    <Compile Include="OO\C++\CppHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OO\C++\CPPInterface.cs" />
+    <Compile Include="OO\C++\CppTypeToString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OO\C++\Utils.cs" />
+    <Compile Include="OO\CS\CSClass.cs" />
+    <Compile Include="OO\CS\CSCodeGenerator.cs" />
+    <Compile Include="OO\CS\CSDependancyToString.cs" />
+    <Compile Include="OO\CS\CSInterface.cs" />
+    <Compile Include="OO\CS\CSMethod.cs" />
+    <Compile Include="OO\CS\CSTypeToString.cs" />
+    <Compile Include="OO\CS\DefaultTypeValue.cs" />
+    <Compile Include="OO\CS\Utils.cs" />
+    <Compile Include="OO\Dom\DependancyList.cs" />
+    <Compile Include="OO\Dom\IConstList.cs" />
+    <Compile Include="OO\Dom\InterfaceList.cs" />
+    <Compile Include="OO\Exceptions\InvalidArgumentException.cs" />
+    <Compile Include="OO\Exceptions\InvalidNameException.cs" />
+    <Compile Include="OO\Dom\GenericClass.cs" />
+    <Compile Include="OO\IClassWriter.cs" />
+    <Compile Include="ICodeGenerator.cs" />
+    <Compile Include="ITypeToString.cs" />
+    <Compile Include="OO\Dom\Interface.cs" />
+    <Compile Include="OO\Dom\Member.cs" />
+    <Compile Include="OO\Dom\Method.cs" />
+    <Compile Include="OO\Utils\CodeWritter.cs" />
+    <Compile Include="ICodeWritter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

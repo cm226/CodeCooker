@@ -1,0 +1,20 @@
+.logo
+{
+}
+.console
+{
+	vertical-align: -6px;
+	color: #E6E6E6;
+	font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+	font-style:italic;
+	font-size: 20px;
+}
+
+.cooker
+{
+	vertical-align: -7px;
+	color: #FF6600;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}

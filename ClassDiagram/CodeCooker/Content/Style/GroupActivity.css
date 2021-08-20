@@ -1,0 +1,165 @@
+#GroupActivity
+{
+	position: fixed;
+	bottom: -358px;
+	right: 30px;
+	height: 400px;
+	width:330px;
+
+	background-color: white;
+	z-index: 10;
+}
+
+#groupActivityTab
+{
+	display: none;
+	border-bottom-width: 5px;
+	border-bottom-color: #FF6600
+	border-style: none;
+}
+
+#groupChatt
+{
+	height: 270px;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.messageOuter
+{
+	width: 100%;
+}
+
+.chattMessagesInner
+{
+	height: auto;
+}
+
+.chattMessagesInner .message
+{
+	margin: 5px;
+	padding: 7px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+
+	background: rgb(99,182,219); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(99,182,219,1) 0%, rgba(48,157,207,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(99,182,219,1)), color-stop(100%,rgba(48,157,207,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63b6db', endColorstr='#309dcf',GradientType=0 ); /* IE6-9 */
+
+	-webkit-box-shadow: inset 0px 0px 7px 2px rgba(0,30,107,1);
+	-moz-box-shadow: inset 0px 0px 7px 2px rgba(0,30,107,1);
+	box-shadow: inset 0px 0px 7px 2px rgba(0,30,107,1);
+
+}
+
+.chattMessagesInner .messageMe
+{
+	margin: 5px;
+	padding: 7px;
+	border-radius: 5px;
+	border-width: 1px;
+	border-style: solid;
+
+background: rgb(229,229,229); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(229,229,229,1) 0%, rgba(198,198,198,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,229,229,1)), color-stop(100%,rgba(198,198,198,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(198,198,198,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(198,198,198,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(198,198,198,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(229,229,229,1) 0%,rgba(198,198,198,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
+
+-webkit-box-shadow: inset 0px 0px 7px 2px rgba(155,155,155,1);
+-moz-box-shadow: inset 0px 0px 7px 2px rgba(155,155,155,1);
+box-shadow: inset 0px 0px 7px 2px rgba(155,155,155,1);
+}
+
+.chattMessagesInner .from
+{
+	width: 100%;
+	float:left;
+	font-weight: bold;
+	font-size: 12px;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+
+#chattMessage
+{
+	bottom: 0px;
+
+	padding-left: 5px;
+}
+
+/* =======================Tabs=======================*/
+
+.ui-tabs-anchor
+{
+	padding: 2px;
+	font-size: 12px;
+
+}
+
+#tabs .ui-widget-header
+{
+	border-radius: 0px;
+	background: none;
+}
+
+.ui-widget-content
+{
+	border: 0px none #aaaaaa;
+}
+
+#tabs
+{
+	border-radius: 0px;
+	padding: 0px;
+}
+
+
+/* ====================== Group Info ==============*/
+
+.groupIDInfo
+{
+	border-radius: 5px;
+	border: 1px solid #aaaaaa;
+	margin: 0px;
+	padding : 5px;
+
+}
+
+.groupIDInfo #groupID
+{
+	font-size: 10px;
+}
+
+
+.membersHeader
+{
+	display: block;
+	margin-top: 30px;
+}
+.groupMembers
+{
+	width: 100%;
+	border-top: 1px solid #aaaaaa;
+}
+
+/* ========================= Join Requests ==========*/
+
+
+#joinRequestsLists
+{
+	list-style-type: none;
+	border: 1px solid #aaaaaa;
+	padding: 5px;
+
+}
